@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm bg-primary-subtle">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="'/'">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul ngbNav [(activeId)]="active" class="navbar-nav me-auto">
+        <li [ngbNavItem]="1" class="nav-item">
+          <a class="nav-link active" [routerLink]="'/list'">List</a>
+        </li>
+        <li [ngbNavItem]="2" class="nav-item">
+          <a class="nav-link active" [routerLink]="'/edit'">Edit</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+
+  <h1>Mocktor 2</h1>
+
+  <router-outlet />
+
+</div>
+
+
