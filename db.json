@@ -1,0 +1,54 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "intern": true,
+      "gender": "unknown",
+      "birthday": "1970-01-01",
+      "trainings": [
+        {
+          "subject": "Angular",
+          "date": "2025-05-03"
+        },
+        {
+          "subject": "Spring",
+          "date": "2025-05-03"
+        }
+      ],
+      "address": {
+        "street": "Main Street",
+        "number": "6b"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "intern": false,
+      "gender": "female",
+      "birthday": "1985-08-12",
+      "trainings": [
+        {
+          "subject": "React",
+          "date": "2025-04-20"
+        }
+      ],
+      "address": {
+        "street": "Elm Street",
+        "number": "42a"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Max Mustermann",
+      "intern": false,
+      "gender": "male",
+      "birthday": "1990-03-05",
+      "trainings": [],
+      "address": {
+        "street": "Baker Street",
+        "number": "221b"
+      }
+    }
+  ]
+}

@@ -1,1 +1,25 @@
-<p>employee-list works!</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Birthday</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (employee of employees(); track employee; let i = $index) {
+      <tr>
+        <th scope="row">
+          <a class="btn btn-primary btn-link" [routerLink]="['/detail', employee.id]">{{ i + 1 }}</a>
+        </th>
+        <td>
+          {{ employee.name }}
+        </td>
+        <td>{{ employee.birthday }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<app-employee-reset></app-employee-reset>
+<app-employee-count [count]="employees()" [employees]="employees()"></app-employee-count>
