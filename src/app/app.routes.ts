@@ -7,20 +7,15 @@ import {EmployeeDetailComponent} from './employee-detail/employee-detail.compone
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'list',
+    pathMatch: 'full'
   },
   {
     path: 'list',
     component: EmployeeListComponent
   },
   {
-    path: 'edit',
-    component: EmployeeEditComponent,
-    children: [
-      {
-        path: 'id',
-        component: EmployeeDetailComponent,
-      }
-    ],
+    path: 'edit/:id',
+    component: EmployeeEditComponent
   }
 ];

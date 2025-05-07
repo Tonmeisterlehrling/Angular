@@ -1,1 +1,69 @@
-<p>employee-edit works!</p>
+<form class="mt-3" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input formControlName="name" class="form-control" id="name" placeholder="John Doe">
+  </div>
+
+  <h3>Adresse: </h3>
+  <div class="row" formGroupName="address">
+    <div class="mb-3 col">
+      <label for="street" class="form-label">Street</label>
+      <input formControlName="street" class="form-control" id="street" placeholder="Holzweg">
+    </div>
+    <div class="mb-3 col">
+      <label for="number" class="form-label">Number</label>
+      <input formControlName="number" class="form-control" id="number" placeholder="12">
+    </div>
+  </div>
+
+  <p>
+  <button
+    type="button"
+    class="btn btn-outline-primary ms-2"
+    (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample"
+  >
+    Trainings:
+  </button>
+    <button class="btn btn-primary btn-md ms-5" (click)="add()">
+      <i class="bi bi-plus-circle"></i>
+    </button>
+  </p>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+
+        <ng-container formArrayName="trainings">
+          <div class="card">
+            <div class="card-body">
+          @for (training of form.controls.trainings.controls; track training) {
+            <div class="card mb-3">
+              <div class="card-body" [formGroupName]="$index">
+                <div class="row">
+                  <div class="mb-3 col align-self-center">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input formControlName="subject" class="form-control" id="subject" placeholder="-">
+                  </div>
+                  <div class="mb-3 col align-self-center">
+                    <label for="date" class="form-label">Date</label>
+                    <input formControlName="date" class="form-control" id="date" placeholder="-">
+                  </div>
+                  <div class="mb-3 col align-self-center">
+                    <button class="btn btn-danger" (click)="deleteIdx($index)">
+                      <i class="bi bi-patch-minus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          } @empty {
+            <li>Nock keine Trainingsdaten</li>
+          }
+            </div>
+          </div>
+        </ng-container>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<button type="button" class="btn btn-danger mt-4" (click)="back()">Back</button>
